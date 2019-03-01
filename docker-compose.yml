@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: web.Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - 84:80
+    links:
+      - app
+
+  app:
+    build:
+      context: ./
+      dockerfile: php.Dockerfile
+    volumes:
+      - ./:/var/www
+    environment:
+      XDEBUG_CONFIG: remote_host=192.168.1.59

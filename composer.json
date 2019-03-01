@@ -1,0 +1,26 @@
+{
+  "name": "andreshg112/chuck-norris-jokes",
+  "description": "Muestra chistes aleatorios sobre Chuck Norris.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Andrés Herrera García",
+      "email": "andreshg112@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Andreshg112\\ChuckNorrisJokes\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Andreshg112\\ChuckNorrisJokes\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.5"
+  }
+}
