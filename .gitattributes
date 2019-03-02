@@ -1,0 +1,9 @@
+/.gitignore         export-ignore
+/.travis.yml        export-ignore
+/.styleci.yml       export-ignore
+/tests              export-ignore
+/phpunit.xml.dist   export-ignore
+/.gitattributes     export-ignore
+/*.Dockerfile       export-ignore
+/docker-compose.yml export-ignore
+/php-custom.ini     export-ignore
