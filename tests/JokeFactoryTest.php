@@ -2,12 +2,12 @@
 
 namespace Andreshg112\ChuckNorrisJokes\Tests;
 
-use Andreshg112\ChuckNorrisJokes\JokeFactory;
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use GuzzleHttp\Handler\MockHandler;
+use Andreshg112\ChuckNorrisJokes\JokeFactory;
 
 class JokeFactoryTest extends TestCase
 {

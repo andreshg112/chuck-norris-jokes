@@ -2,9 +2,8 @@
 
 namespace Andreshg112\ChuckNorrisJokes;
 
-use function GuzzleHttp\json_decode;
 use GuzzleHttp\Client;
-
+use function GuzzleHttp\json_decode;
 
 class JokeFactory
 {
@@ -22,7 +21,7 @@ class JokeFactory
     {
         $response = $this->client->get(self::API_ENDPOINT);
 
-        $joke =  json_decode($response->getBody()->getContents());
+        $joke = json_decode($response->getBody()->getContents());
 
         return $joke->value->joke;
     }
