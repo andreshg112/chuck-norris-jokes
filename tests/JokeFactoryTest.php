@@ -2,8 +2,12 @@
 
 namespace Andreshg112\ChuckNorrisJokes\Tests;
 
-use PHPUnit\Framework\TestCase;
 use Andreshg112\ChuckNorrisJokes\JokeFactory;
+use GuzzleHttp\Client;
+use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Psr7\Response;
+use PHPUnit\Framework\TestCase;
 
 class JokeFactoryTest extends TestCase
 {
@@ -14,32 +18,18 @@ class JokeFactoryTest extends TestCase
      */
     public function it_returns_a_random_joke()
     {
-        $jokes = new JokeFactory([
-            'This is a joke',
+        // Create a mock and queue two responses.
+        $mock = new MockHandler([
+            new Response(200, [], '{ "type": "success", "value": { "id": 21, "joke": "Chuck Norris doesn\'t shower, he only takes blood baths.", "categories": [] } }'),
         ]);
 
-        $joke = $jokes->getRandomJoke();
+        $handler = HandlerStack::create($mock);
+        $client = new Client(['handler' => $handler]);
 
-        $this->assertSame('This is a joke', $joke);
-    }
-
-    /**
-     * @test
-     *
-     * @return void
-     */
-    public function it_returns_a_predefined_joke()
-    {
-        $chuckNorrisJokes = [
-            "Chuck Norris' tears cure cancer. Too bad he has never cried. ",
-            'The First rule of Chuck Norris is: you do not talk about Chuck Norris.',
-            'Chuck Norris counted to infinity... Twice. ',
-        ];
-
-        $jokes = new JokeFactory;
+        $jokes = new JokeFactory($client);
 
         $joke = $jokes->getRandomJoke();
 
-        $this->assertContains($joke, $chuckNorrisJokes);
+        $this->assertSame("Chuck Norris doesn't shower, he only takes blood baths.", $joke);
     }
 }

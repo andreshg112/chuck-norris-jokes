@@ -2,24 +2,28 @@
 
 namespace Andreshg112\ChuckNorrisJokes;
 
+use function GuzzleHttp\json_decode;
+use GuzzleHttp\Client;
+
+
 class JokeFactory
 {
-    /** @var array $jokes Vector de chistes. */
-    protected $jokes = [
-        "Chuck Norris' tears cure cancer. Too bad he has never cried. ",
-        'The First rule of Chuck Norris is: you do not talk about Chuck Norris.',
-        'Chuck Norris counted to infinity... Twice. ',
-    ];
+    const API_ENDPOINT = 'https://api.icndb.com/jokes/random';
 
-    public function __construct(array $jokes = null)
+    /** @var \GuzzleHttp\Client $client Cliente de Guzzle. */
+    protected $client;
+
+    public function __construct(Client $client = null)
     {
-        if ($jokes) {
-            $this->jokes = $jokes;
-        }
+        $this->client = $client ?: new Client();
     }
 
     public function getRandomJoke()
     {
-        return $this->jokes[array_rand($this->jokes)];
+        $response = $this->client->get(self::API_ENDPOINT);
+
+        $joke =  json_decode($response->getBody()->getContents());
+
+        return $joke->value->joke;
     }
 }
