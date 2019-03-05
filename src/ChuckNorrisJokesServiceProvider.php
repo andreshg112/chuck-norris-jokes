@@ -2,10 +2,10 @@
 
 namespace Andreshg112\ChuckNorrisJokes;
 
-use Andreshg112\ChuckNorrisJokes\Console\ChuckNorrisJoke;
-use Andreshg112\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
+use Andreshg112\ChuckNorrisJokes\Console\ChuckNorrisJoke;
+use Andreshg112\ChuckNorrisJokes\Http\Controllers\ChuckNorrisController;
 
 class ChuckNorrisJokesServiceProvider extends ServiceProvider
 {
