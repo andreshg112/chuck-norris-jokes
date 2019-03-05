@@ -2,8 +2,8 @@
 
 namespace Andreshg112\ChuckNorrisJokes\Console;
 
-use Andreshg112\ChuckNorrisJokes\Facades\ChuckNorris;
 use Illuminate\Console\Command;
+use Andreshg112\ChuckNorrisJokes\Facades\ChuckNorris;
 
 class ChuckNorrisJoke extends Command
 {
