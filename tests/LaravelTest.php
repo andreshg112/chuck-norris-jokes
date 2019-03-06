@@ -2,11 +2,11 @@
 
 namespace Andreshg112\ChuckNorrisJokes\Tests;
 
-use Andreshg112\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
-use Andreshg112\ChuckNorrisJokes\Console\ChuckNorrisJoke;
-use Andreshg112\ChuckNorrisJokes\Facades\ChuckNorris;
-use Illuminate\Support\Facades\Artisan;
 use Orchestra\Testbench\TestCase;
+use Illuminate\Support\Facades\Artisan;
+use Andreshg112\ChuckNorrisJokes\Facades\ChuckNorris;
+use Andreshg112\ChuckNorrisJokes\Console\ChuckNorrisJoke;
+use Andreshg112\ChuckNorrisJokes\ChuckNorrisJokesServiceProvider;
 
 class LaravelTest extends TestCase
 {
@@ -35,7 +35,7 @@ class LaravelTest extends TestCase
 
         $output = Artisan::output();
 
-        $this->assertSame('some joke' . PHP_EOL, $output);
+        $this->assertSame('some joke'.PHP_EOL, $output);
     }
 
     /** @test */
