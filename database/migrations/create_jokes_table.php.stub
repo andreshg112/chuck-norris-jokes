@@ -1,0 +1,28 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateJokesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        Schema::create('jokes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('joke');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migration.
+     */
+    public function down()
+    {
+        Schema::dropIfExists('jokes');
+    }
+}
